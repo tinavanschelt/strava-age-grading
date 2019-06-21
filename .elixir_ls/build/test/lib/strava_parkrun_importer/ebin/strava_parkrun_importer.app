@@ -10,6 +10,7 @@
                         'Elixir.StravaParkrunImporter.Users',
                         'Elixir.StravaParkrunImporter.Users.User',
                         'Elixir.StravaParkrunImporterWeb',
+                        'Elixir.StravaParkrunImporterWeb.AuthController',
                         'Elixir.StravaParkrunImporterWeb.ChannelCase',
                         'Elixir.StravaParkrunImporterWeb.ConnCase',
                         'Elixir.StravaParkrunImporterWeb.Endpoint',

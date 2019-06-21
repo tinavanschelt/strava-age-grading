@@ -16,6 +16,7 @@ defmodule StravaParkrunImporterWeb.Router do
   scope "/", StravaParkrunImporterWeb do
     pipe_through :browser
 
+    get "/auth", AuthController, :index
     get "/", PageController, :index
   end
 

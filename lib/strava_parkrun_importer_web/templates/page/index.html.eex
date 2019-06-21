@@ -1,7 +1,9 @@
 <section class="phx-hero">
-  <h1><%= gettext "Welcome to %{name}!", name: "Phoenix" %></h1>
-  <p>A productive web framework that<br/>does not compromise speed or maintainability.</p>
+  <h1>Strava Parkrun Importer</h1>
+  <p>The ability to import your older pre-Strava parkruns.</p>
 </section>
+
+<a href="/auth"><h2>Connect to Strava</h2></a>
 
 <section class="row">
   <article class="column">

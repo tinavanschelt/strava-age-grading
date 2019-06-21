@@ -4,7 +4,7 @@ defmodule StravaParkrunImporter.Users.User do
 
   schema "users" do
     field :access_token, :string
-    field :"email.string", :string
+    field :email, :string
     field :refresh_token, :string
 
     timestamps()
