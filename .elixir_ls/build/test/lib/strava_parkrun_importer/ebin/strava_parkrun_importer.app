@@ -3,7 +3,7 @@
                              gettext,jason,phoenix_pubsub,postgrex,ecto_sql,
                              phoenix_html,plug_cowboy,phoenix,phoenix_ecto]},
               {description,"strava_parkrun_importer"},
-              {modules,['Elixir.StravaParkrunImporter',
+              {modules,['Elixir.Strava','Elixir.StravaParkrunImporter',
                         'Elixir.StravaParkrunImporter.Application',
                         'Elixir.StravaParkrunImporter.DataCase',
                         'Elixir.StravaParkrunImporter.Repo',
