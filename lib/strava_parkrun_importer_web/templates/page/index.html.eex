@@ -3,20 +3,12 @@
   <p>The ability to import your older pre-Strava parkruns.</p>
 </section>
 
-<a href="/auth"><h2>Connect to Strava</h2></a>
-
 <section class="row">
   <article class="column">
     <h2>Resources</h2>
     <ul>
       <li>
-        <a href="https://hexdocs.pm/phoenix/overview.html">Guides &amp; Docs</a>
-      </li>
-      <li>
-        <a href="https://github.com/phoenixframework/phoenix">Source</a>
-      </li>
-      <li>
-        <a href="https://github.com/phoenixframework/phoenix/blob/v1.4/CHANGELOG.md">v1.4 Changelog</a>
+        <a href="/auth">Connect to Strava</a>
       </li>
     </ul>
   </article>

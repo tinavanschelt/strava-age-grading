@@ -3,7 +3,8 @@ defmodule StravaParkrunImporter.Repo.Migrations.CreateUsers do
 
   def change do
     create table(:users) do
-      add :"email.string", :string
+      add :email, :string
+      add :strava_id, :integer
       add :access_token, :text
       add :refresh_token, :text
 

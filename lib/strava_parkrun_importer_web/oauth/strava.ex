@@ -5,32 +5,19 @@ defmodule Strava do
   use OAuth2.Strategy
   alias OAuth2.Strategy.AuthCode
 
-  # defp config do
-  #   [
-  #     strategy: Strava,
-  #     site: "https://developers.strava.com",
-  #     authorize_url: "https://strava.com/oauth2/authorize",
-  #     token_url: "https://www.strava.com/oauth/token"
-  #   ]
-  # end
-
   # Public API
 
-  # def client do
-  #   Application.get_env(:oauth2_example, Strava)
-  #   |> Keyword.merge(config())
-  #   |> OAuth2.Client.new()
-  # end
   def client do
-    OAuth2.new(
+    OAuth2.Client.new(
       strategy: __MODULE__,
-      client_id: System.get_env("CLIENT_ID"),
-      client_secret: System.get_env("CLIENT_SECRET"),
+      client_id: System.get_env("STRAVA_CLIENT_ID"),
+      client_secret: System.get_env("STRAVA_CLIENT_SECRET"),
       redirect_uri: System.get_env("REDIRECT_URI"),
-      site: "https://developers.strava.com",
-      authorize_url: "https://strava.com/oauth2/authorize",
+      site: "https://www.strava.com",
+      authorize_url: "https://www.strava.com/oauth/authorize",
       token_url: "https://www.strava.com/oauth/token"
     )
+    |> OAuth2.Client.put_serializer("application/json", Jason)
   end
 
   def authorize_url!(params \\ []) do
@@ -52,12 +39,8 @@ defmodule Strava do
 
   def get_token(client, params, headers) do
     client
+    |> put_param(:client_secret, client.client_secret)
     |> put_header("Accept", "application/json")
-    |> put_header(
-      "Authorization",
-      "Basic " <>
-        Base.encode64(System.get_env("CLIENT_ID") <> ":" <> System.get_env("CLIENT_SECRET"))
-    )
     |> AuthCode.get_token(params, headers)
   end
 end

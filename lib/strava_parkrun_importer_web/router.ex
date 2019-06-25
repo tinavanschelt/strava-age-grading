@@ -16,8 +16,9 @@ defmodule StravaParkrunImporterWeb.Router do
   scope "/", StravaParkrunImporterWeb do
     pipe_through :browser
 
-    get "/auth", AuthController, :index
     get "/", PageController, :index
+    get "/auth", AuthController, :index
+    get "/auth/callback", AuthController, :callback
   end
 
   # Other scopes may use custom stacks.
