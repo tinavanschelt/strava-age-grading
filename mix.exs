@@ -20,7 +20,7 @@ defmodule StravaParkrunImporter.MixProject do
   def application do
     [
       mod: {StravaParkrunImporter.Application, []},
-      extra_applications: [:logger, :runtime_tools, :oauth2],
+      extra_applications: [:logger, :runtime_tools, :oauth2]
     ]
   end
 
@@ -44,7 +44,9 @@ defmodule StravaParkrunImporter.MixProject do
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
       {:oauth2, "~> 1.0"},
-      {:csv, "~> 2.3"}
+      {:csv, "~> 2.3"},
+      {:httpoison, "~> 1.4"},
+      {:decimal, "~> 1.0"}
     ]
   end
 

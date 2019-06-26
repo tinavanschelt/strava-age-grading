@@ -1,0 +1,8 @@
+<h1>Show Race</h1>
+
+<ul>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.race_path(@conn, :edit, @race) %></span>
+<span><%= link "Back", to: Routes.race_path(@conn, :index) %></span>

@@ -19,6 +19,8 @@ defmodule StravaParkrunImporterWeb.Router do
     get "/", PageController, :index
     get "/auth", AuthController, :index
     get "/auth/callback", AuthController, :callback
+
+    resources "/races", RaceController
   end
 
   # Other scopes may use custom stacks.

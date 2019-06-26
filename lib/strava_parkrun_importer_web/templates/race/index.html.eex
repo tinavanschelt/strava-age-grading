@@ -1,0 +1,24 @@
+<h1>Age Gradings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Race</th>
+      <th>Label</th>
+      <th>Time (seconds)</th>
+      <th>Distance</th>
+      <th>Age Grading</th>
+    </tr>
+  </thead>
+  <tbody>
+  <%= for race <- @races do %>
+    <tr>
+      <td><%= race[:name] %></td>
+      <td><%= race[:label] %>km</td>
+      <td><%= race[:time] %></td>
+      <td><%= race[:distance] %>km</td>
+      <td><%= race[:age_grading] %>%</td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
