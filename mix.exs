@@ -1,9 +1,9 @@
-defmodule StravaParkrunImporter.MixProject do
+defmodule StravaAgeGrading.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :strava_parkrun_importer,
+      app: :strava_age_grading,
       version: "0.1.0",
       elixir: "~> 1.5",
       elixirc_paths: elixirc_paths(Mix.env()),
@@ -19,7 +19,7 @@ defmodule StravaParkrunImporter.MixProject do
   # Type `mix help compile.app` for more information.
   def application do
     [
-      mod: {StravaParkrunImporter.Application, []},
+      mod: {StravaAgeGrading.Application, []},
       extra_applications: [:logger, :runtime_tools, :oauth2]
     ]
   end

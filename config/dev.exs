@@ -1,10 +1,10 @@
 use Mix.Config
 
 # Configure your database
-config :strava_parkrun_importer, StravaParkrunImporter.Repo,
+config :strava_age_grading, StravaAgeGrading.Repo,
   username: "postgres",
   password: "postgres",
-  database: "strava_parkrun_importer_dev",
+  database: "strava_age_grading_dev",
   hostname: "localhost",
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
@@ -15,7 +15,7 @@ config :strava_parkrun_importer, StravaParkrunImporter.Repo,
 # The watchers configuration can be used to run external
 # watchers to your application. For example, we use it
 # with webpack to recompile .js and .css sources.
-config :strava_parkrun_importer, StravaParkrunImporterWeb.Endpoint,
+config :strava_age_grading, StravaAgeGradingWeb.Endpoint,
   http: [port: 4000],
   debug_errors: true,
   code_reloader: true,
@@ -55,13 +55,13 @@ config :strava_parkrun_importer, StravaParkrunImporterWeb.Endpoint,
 # different ports.
 
 # Watch static and templates for browser reloading.
-config :strava_parkrun_importer, StravaParkrunImporterWeb.Endpoint,
+config :strava_age_grading, StravaAgeGradingWeb.Endpoint,
   live_reload: [
     patterns: [
       ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
       ~r"priv/gettext/.*(po)$",
-      ~r"lib/strava_parkrun_importer_web/{live,views}/.*(ex)$",
-      ~r"lib/strava_parkrun_importer_web/templates/.*(eex)$"
+      ~r"lib/strava_age_grading_web/{live,views}/.*(ex)$",
+      ~r"lib/strava_age_grading_web/templates/.*(eex)$"
     ]
   ]
 

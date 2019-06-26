@@ -1,4 +1,4 @@
-defmodule StravaParkrunImporter.DataCase do
+defmodule StravaAgeGrading.DataCase do
   @moduledoc """
   This module defines the setup for tests requiring
   access to the application's data layer.
@@ -16,20 +16,20 @@ defmodule StravaParkrunImporter.DataCase do
 
   using do
     quote do
-      alias StravaParkrunImporter.Repo
+      alias StravaAgeGrading.Repo
 
       import Ecto
       import Ecto.Changeset
       import Ecto.Query
-      import StravaParkrunImporter.DataCase
+      import StravaAgeGrading.DataCase
     end
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(StravaParkrunImporter.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(StravaAgeGrading.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(StravaParkrunImporter.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(StravaAgeGrading.Repo, {:shared, self()})
     end
 
     :ok

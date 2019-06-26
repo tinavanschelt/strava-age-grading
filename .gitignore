@@ -21,7 +21,7 @@ erl_crash.dump
 *.beam
 
 # Ignore package tarball (built via "mix hex.build").
-strava_parkrun_importer-*.tar
+strava_age_grading-*.tar
 
 # If NPM crashes, it generates a log, let's ignore it too.
 npm-debug.log

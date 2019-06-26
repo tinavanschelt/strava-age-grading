@@ -1,4 +1,4 @@
-defmodule StravaParkrunImporterWeb.ChannelCase do
+defmodule StravaAgeGradingWeb.ChannelCase do
   @moduledoc """
   This module defines the test case to be used by
   channel tests.
@@ -21,15 +21,15 @@ defmodule StravaParkrunImporterWeb.ChannelCase do
       use Phoenix.ChannelTest
 
       # The default endpoint for testing
-      @endpoint StravaParkrunImporterWeb.Endpoint
+      @endpoint StravaAgeGradingWeb.Endpoint
     end
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(StravaParkrunImporter.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(StravaAgeGrading.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(StravaParkrunImporter.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(StravaAgeGrading.Repo, {:shared, self()})
     end
 
     :ok

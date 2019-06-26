@@ -1,2 +1,2 @@
 ExUnit.start()
-Ecto.Adapters.SQL.Sandbox.mode(StravaParkrunImporter.Repo, :manual)
+Ecto.Adapters.SQL.Sandbox.mode(StravaAgeGrading.Repo, :manual)

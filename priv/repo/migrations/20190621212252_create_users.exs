@@ -1,4 +1,4 @@
-defmodule StravaParkrunImporter.Repo.Migrations.CreateUsers do
+defmodule StravaAgeGrading.Repo.Migrations.CreateUsers do
   use Ecto.Migration
 
   def change do

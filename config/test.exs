@@ -1,16 +1,16 @@
 use Mix.Config
 
 # Configure your database
-config :strava_parkrun_importer, StravaParkrunImporter.Repo,
+config :strava_age_grading, StravaAgeGrading.Repo,
   username: "postgres",
   password: "postgres",
-  database: "strava_parkrun_importer_test",
+  database: "strava_age_grading_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
 
 # We don't run a server during test. If one is required,
 # you can enable the server option below.
-config :strava_parkrun_importer, StravaParkrunImporterWeb.Endpoint,
+config :strava_age_grading, StravaAgeGradingWeb.Endpoint,
   http: [port: 4002],
   server: false
 

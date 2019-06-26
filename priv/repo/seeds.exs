@@ -5,7 +5,7 @@
 # Inside the script, you can read and write to any of your
 # repositories directly:
 #
-#     StravaParkrunImporter.Repo.insert!(%StravaParkrunImporter.SomeSchema{})
+#     StravaAgeGrading.Repo.insert!(%StravaAgeGrading.SomeSchema{})
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.

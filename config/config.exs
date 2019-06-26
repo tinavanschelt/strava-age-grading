@@ -7,15 +7,15 @@
 # General application configuration
 use Mix.Config
 
-config :strava_parkrun_importer,
-  ecto_repos: [StravaParkrunImporter.Repo]
+config :strava_age_grading,
+  ecto_repos: [StravaAgeGrading.Repo]
 
 # Configures the endpoint
-config :strava_parkrun_importer, StravaParkrunImporterWeb.Endpoint,
+config :strava_age_grading, StravaAgeGradingWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "FwkcfXcPE/ruRCiCLedgGo6GYro6o2gzHDlW79E9yxXQA7sNCXgNKlM6WzXFpKSp",
-  render_errors: [view: StravaParkrunImporterWeb.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: StravaParkrunImporter.PubSub, adapter: Phoenix.PubSub.PG2]
+  render_errors: [view: StravaAgeGradingWeb.ErrorView, accepts: ~w(html json)],
+  pubsub: [name: StravaAgeGrading.PubSub, adapter: Phoenix.PubSub.PG2]
 
 # Configures Elixir's Logger
 config :logger, :console,
