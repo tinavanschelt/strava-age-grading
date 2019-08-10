@@ -1,5 +1,12 @@
 <section class="phx-hero">
   <h1>Strava Age Grading</h1>
-  <p>Lists all your races logged on Strava with an age grading.</p>
-  <p><a href="/auth">Connect to Strava</a></p>
+  <p>A little app that lists all your Strava-logged runs, tagged with "Race", with an age grading. Age grading is a handy metric for runners, popularised by the Parkrun community - more on that <a href="https://support.parkrun.com/hc/en-us/articles/200565263-What-is-age-grading-" target="_blank">here</a>.</p>
+  <a class="btn_strava" href="/auth"><img src="/images/btn_strava@2x.png" /></a>
+  <p>
+    <ul>
+      <li>You can <a href="https://www.strava.com/settings/apps">disconnect</a> this app at any time.</li>
+      <li>We only store your strava ID, temporary access key and age.</li>
+      <li>I built this for personal use. If you find it useful - please consider making a <a target="_blank" ref="https://sidewalkspecials.org/donate/">donation</a> to <a href="https://www.instagram.com/sidewalkspecials/">Sidewalk Specials</a>.</li>
+    </ul>
+  <p>
 </section>

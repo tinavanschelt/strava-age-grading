@@ -20,7 +20,8 @@ defmodule StravaAgeGradingWeb.Router do
     get "/auth", AuthController, :index
     get "/auth/callback", AuthController, :callback
 
-    resources "/races", RaceController
+    resources "/users", UserController
+    resources "/races", RaceController, only: [:index]
   end
 
   # Other scopes may use custom stacks.

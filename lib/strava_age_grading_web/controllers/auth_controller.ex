@@ -24,11 +24,13 @@ defmodule StravaAgeGradingWeb.AuthController do
         }
       )
 
-    Repo.insert!(changeset)
+    user = Repo.insert!(changeset)
+    IO.inspect(athlete)
 
     conn
-    |> put_flash(:info, "Strava connected successfully.")
     |> put_session(:access_token, access_token)
-    |> redirect(to: "/races")
+    |> redirect(
+      to: Routes.user_path(conn, :edit, user.id, name: athlete["firstname"], sex: athlete["sex"])
+    )
   end
 end

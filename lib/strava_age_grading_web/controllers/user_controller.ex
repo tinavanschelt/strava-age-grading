@@ -31,20 +31,20 @@ defmodule StravaAgeGradingWeb.UserController do
     render(conn, "show.html", user: user)
   end
 
-  def edit(conn, %{"id" => id}) do
+  def edit(conn, %{"id" => id, "name" => name, "sex" => sex}) do
     user = Users.get_user!(id)
     changeset = Users.change_user(user)
-    render(conn, "edit.html", user: user, changeset: changeset)
+    render(conn, "edit.html", user: user, changeset: changeset, name: name, sex: sex)
   end
 
   def update(conn, %{"id" => id, "user" => user_params}) do
     user = Users.get_user!(id)
+    IO.inspect(user_params)
 
     case Users.update_user(user, user_params) do
-      {:ok, user} ->
+      {:ok, _user} ->
         conn
-        |> put_flash(:info, "User updated successfully.")
-        |> redirect(to: Routes.user_path(conn, :show, user))
+        |> redirect(to: Routes.race_path(conn, :index, %{"sex" => user_params["sex"]}))
 
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "edit.html", user: user, changeset: changeset)

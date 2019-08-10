@@ -16,7 +16,7 @@ defmodule StravaAgeGradingWeb.RaceController do
     {:ok, data} = File.read("data/factors.json")
     data = Jason.decode!(data)
 
-    sex = "F"
+    sex = "M"
     age = "29"
 
     grades =

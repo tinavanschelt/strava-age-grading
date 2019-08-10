@@ -424,7 +424,7 @@ fieldset,
 input,
 select,
 textarea {
-  margin-bottom: 1.5rem;
+  margin-bottom: 0;
 }
 blockquote,
 dl,
@@ -558,7 +558,7 @@ select {
 
 /* Alerts and form errors */
 .alert {
-  padding: 15px;
+  padding: 15px 15px 12px 15px;
   margin-bottom: 20px;
   border: 1px solid transparent;
   border-radius: 4px;
@@ -600,6 +600,12 @@ select {
   margin: 5rem 0;
   font-weight: 200;
   font-size: 120%;
+}
+
+.phx-hero.clear {
+  border: none;
+  background: transparent;
+  padding: 3em 0;
 }
 
 /* Headers */
@@ -649,4 +655,9 @@ header nav a {
     flex-basis: 527px;
     margin: 2rem 1rem;
   }
+}
+
+/* Custom CSS */
+.btn_strava img {
+  max-height: 80px;
 }
