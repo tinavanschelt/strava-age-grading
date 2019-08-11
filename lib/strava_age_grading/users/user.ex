@@ -16,5 +16,6 @@ defmodule StravaAgeGrading.Users.User do
     user
     |> cast(attrs, [:access_token, :strava_id, :refresh_token, :age])
     |> validate_required([:access_token, :strava_id])
+    |> unique_constraint(:strava_id)
   end
 end

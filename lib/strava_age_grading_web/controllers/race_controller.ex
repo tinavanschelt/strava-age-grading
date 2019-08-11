@@ -3,6 +3,8 @@ defmodule StravaAgeGradingWeb.RaceController do
 
   alias StravaAgeGrading.Races
   alias StravaAgeGrading.Races.Race
+  alias StravaAgeGrading.Repo
+  alias StravaAgeGrading.Users.User
 
   @spec index(Plug.Conn.t(), any) :: Plug.Conn.t()
   def index(conn, %{"sex" => sex}) do
@@ -14,12 +16,14 @@ defmodule StravaAgeGradingWeb.RaceController do
 
     {:ok, data} = File.read("data/factors.json")
     data = Jason.decode!(data)
-    age = "29"
+
+    user = Repo.get_by(User, access_token: access_token)
+    age = (DateTime.utc_now.year - user.updated_at.year) + user.age |> Integer.to_string
 
     grades =
       Enum.map(races, fn race ->
-        distance = Decimal.round(Decimal.div(Decimal.new(race["distance"]), 1000), 2)
-        label = Decimal.to_string(Decimal.round(Decimal.div(Decimal.new(race["distance"]), 1000)))
+        distance = Decimal.round(Decimal.div(Decimal.from_float(race["distance"]), 1000), 2)
+        label = Decimal.to_string(Decimal.round(Decimal.div(Decimal.from_float(race["distance"]), 1000)))
         time = Decimal.new(race["elapsed_time"])
         record = Decimal.new(data[sex]["Record"]["Km"][label])
         factor = Decimal.new(data[sex][age]["Km"][label])
