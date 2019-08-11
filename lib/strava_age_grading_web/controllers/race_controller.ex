@@ -23,15 +23,16 @@ defmodule StravaAgeGradingWeb.RaceController do
       Enum.map(races, fn race ->
         distance = Decimal.round(Decimal.div(Decimal.from_float(race["distance"]), 1000), 2)
         label = Decimal.to_string(Decimal.round(Decimal.div(Decimal.from_float(race["distance"]), 1000)))
-        time = Decimal.new(race["elapsed_time"])
+        seconds = Decimal.new(race["elapsed_time"])
+        time = format_time(seconds)
         record = Decimal.new(data[sex]["Record"]["Km"][label])
         factor = Decimal.new(data[sex][age]["Km"][label])
 
-        result = Decimal.div(Decimal.div(record, factor), time)
+        result = Decimal.div(Decimal.div(record, factor), seconds)
 
         %{
           name: race["name"],
-          time: race["elapsed_time"],
+          time: time,
           distance: distance,
           label: label,
           age_grading: Decimal.round(Decimal.mult(result, 100), 2)
@@ -92,7 +93,7 @@ defmodule StravaAgeGradingWeb.RaceController do
     |> redirect(to: Routes.race_path(conn, :index))
   end
 
-  def update_user_age(access_token) do
+  defp update_user_age(access_token) do
     user = Repo.get_by(User, access_token: access_token)
     age = (DateTime.utc_now.year - user.updated_at.year) + user.age
     user
@@ -100,5 +101,20 @@ defmodule StravaAgeGradingWeb.RaceController do
     |> Repo.update()
 
     age |> Integer.to_string
+  end
+
+  defp format_time(elapsed_time) do
+    elapsed_time_string = Decimal.div(elapsed_time, 60) |> Decimal.to_string()
+    hours_and_minutes = elapsed_time_string |> String.split(".") |> Enum.at(0) |> Decimal.div(60)
+    
+    hours = hours_and_minutes |> Decimal.round(0, :floor) |> Decimal.to_integer
+
+    minutes_as_string = hours_and_minutes |> Decimal.to_string() |> Decimal.sub(hours)
+    minutes = minutes_as_string |> Decimal.mult(60) |> Decimal.round()
+
+    seconds = elapsed_time_string |> String.split(".") |> Enum.at(1)
+    seconds = "0.#{seconds}" |> Decimal.mult(60) |> Decimal.round()
+
+    "#{hours}:#{minutes}:#{seconds}"
   end
 end
