@@ -1,4 +1,4 @@
-# StravaAgeGrading
+# Strava Age Grading
 
 To start your Phoenix server:
 
