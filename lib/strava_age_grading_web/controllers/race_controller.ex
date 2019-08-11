@@ -1,6 +1,7 @@
 defmodule StravaAgeGradingWeb.RaceController do
   use StravaAgeGradingWeb, :controller
 
+  import Ecto.Changeset
   alias StravaAgeGrading.Races
   alias StravaAgeGrading.Races.Race
   alias StravaAgeGrading.Repo
@@ -18,7 +19,10 @@ defmodule StravaAgeGradingWeb.RaceController do
     data = Jason.decode!(data)
 
     user = Repo.get_by(User, access_token: access_token)
-    age = (DateTime.utc_now.year - user.updated_at.year) + user.age |> Integer.to_string
+    age = (DateTime.utc_now.year - user.updated_at.year) + user.age
+    user
+    |> change(%{age: age})
+    |> Repo.update()
 
     grades =
       Enum.map(races, fn race ->
@@ -26,7 +30,7 @@ defmodule StravaAgeGradingWeb.RaceController do
         label = Decimal.to_string(Decimal.round(Decimal.div(Decimal.from_float(race["distance"]), 1000)))
         time = Decimal.new(race["elapsed_time"])
         record = Decimal.new(data[sex]["Record"]["Km"][label])
-        factor = Decimal.new(data[sex][age]["Km"][label])
+        factor = Decimal.new(data[sex][Integer.to_string(age)]["Km"][label])
 
         result = Decimal.div(Decimal.div(record, factor), time)
 
