@@ -10,6 +10,7 @@ use Mix.Config
 # which you should run after static files are built and
 # before starting your production server.
 config :strava_age_grading, StravaAgeGradingWeb.Endpoint,
+  load_from_system_env: true,
   url: [scheme: "https", host: "strava-age-grading", port: 443],
   force_ssl: [rewrite_on: [:x_forwarded_proto]],
   cache_static_manifest: "priv/static/cache_manifest.json"
