@@ -5,18 +5,15 @@ defmodule StravaAgeGradingWeb.RaceController do
   alias StravaAgeGrading.Races.Race
 
   @spec index(Plug.Conn.t(), any) :: Plug.Conn.t()
-  def index(conn, params) do
+  def index(conn, %{"sex" => sex}) do
     access_token = conn |> get_session(:access_token)
     headers = [Authorization: "Bearer #{access_token}"]
     {:ok, response} = HTTPoison.get("https://www.strava.com/api/v3/activities", headers)
     response = Jason.decode!(response.body)
     races = Enum.filter(response, fn x -> x["type"] == "Run" and x["workout_type"] == 1 end)
-    # IO.inspect(races)
 
     {:ok, data} = File.read("data/factors.json")
     data = Jason.decode!(data)
-
-    sex = "M"
     age = "29"
 
     grades =
@@ -38,9 +35,7 @@ defmodule StravaAgeGradingWeb.RaceController do
         }
       end)
 
-    IO.inspect(grades)
-
-    render(conn, "index.html", races: grades)
+    render(conn, "index.html", races: grades, sex: sex,  age: age)
   end
 
   def new(conn, _params) do

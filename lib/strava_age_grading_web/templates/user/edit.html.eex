@@ -1,5 +1,5 @@
 <section class="phx-hero">
-  <h2>Just one question, <%= @name %>! Now this might be a little forward, but...</p><p>How old are you?</h2>
+  <h2>Just one question, <%= @name %>. Now this might be a little forward, but...</p><p>How old are you?</h2>
   <%= render "form.html", Map.put(assigns, :action, Routes.user_path(@conn, :update, @user)) %>
 </section>
 

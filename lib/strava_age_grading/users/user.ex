@@ -14,7 +14,7 @@ defmodule StravaAgeGrading.Users.User do
   @doc false
   def changeset(user, attrs) do
     user
-    |> cast(attrs, [:access_token, :strava_id, :refresh_token])
+    |> cast(attrs, [:access_token, :strava_id, :refresh_token, :age])
     |> validate_required([:access_token, :strava_id])
   end
 end

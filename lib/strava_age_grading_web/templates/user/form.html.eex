@@ -5,10 +5,10 @@
     </div>
   <% end %>
 
-  <%= select :user, :age, 5..100 %>
+  <%= select :user, :age, 5..100, selected: 30 %>
   <%= error_tag f, :"age" %>
   
-  <%= hidden_input :user, :sex, value: "M" %>
+  <%= hidden_input :user, :sex, value: @sex %>
 
   <%= submit "Go" %>
 <% end %>

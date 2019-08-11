@@ -5,10 +5,10 @@
     <label></label>
     <div style="display: flex; align-items: center; width: 30%;">
       <label>
-        Age <%= select :user, :age, 5..100 %>
+        Age <%= select :user, :age, 5..100, selected: @age %>
       </label>
       <label style="margin-left: 1rem;">
-        Gender <%= select :user, :gender, ["F", "M"] %>
+        Gender <%= select :user, :gender, ["F", "M"], selected: @sex %>
       </label>
     </div>
   </div>

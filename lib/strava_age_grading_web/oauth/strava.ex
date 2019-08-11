@@ -31,12 +31,6 @@ defmodule Strava do
     )
   end
 
-  # def get_races() do
-  #   activities = OAuth2.Client.get!(client(), "/api/v3/activities").body
-  #   IO.inspect(activities)
-  #   Enum.filter(activities, fn x -> x["type"] == "Run" and x["workout_type"] == 1 end)
-  # end
-
   # Strategy Callbacks
 
   @spec authorize_url(
@@ -50,7 +44,6 @@ defmodule Strava do
             }
         ) :: OAuth2.Client.t()
   def authorize_url(client, params) do
-    IO.inspect(client)
     AuthCode.authorize_url(client, params)
   end
 

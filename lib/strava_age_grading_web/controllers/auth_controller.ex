@@ -13,7 +13,6 @@ defmodule StravaAgeGradingWeb.AuthController do
     athlete = client.token.other_params["athlete"]
 
     check = OAuth2.Client.get!(client, "/api/v3/athlete").body
-    # IO.inspect(check)
 
     changeset =
       User.changeset(
@@ -25,7 +24,6 @@ defmodule StravaAgeGradingWeb.AuthController do
       )
 
     user = Repo.insert!(changeset)
-    IO.inspect(athlete)
 
     conn
     |> put_session(:access_token, access_token)

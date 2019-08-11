@@ -39,7 +39,6 @@ defmodule StravaAgeGradingWeb.UserController do
 
   def update(conn, %{"id" => id, "user" => user_params}) do
     user = Users.get_user!(id)
-    IO.inspect(user_params)
 
     case Users.update_user(user, user_params) do
       {:ok, _user} ->
