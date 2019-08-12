@@ -11,18 +11,20 @@ use Mix.Config
 # before starting your production server.
 config :strava_age_grading, StravaAgeGradingWeb.Endpoint,
   load_from_system_env: true,
-  url: [scheme: "https", host: "strava-age-grading", port: 443],
+  url: [scheme: "https", host: "strava-age-grading.herokuapp.com", port: 443],
   force_ssl: [rewrite_on: [:x_forwarded_proto]],
-  cache_static_manifest: "priv/static/cache_manifest.json"
+  cache_static_manifest: "priv/static/manifest.json",
+  secret_key_base: System.get_env("SECRET_KEY_BASE")
 
 # Do not print debug messages in production
 config :logger, level: :info
 
 config :strava_age_grading, StravaAgeGradingWeb.Repo,
+  show_sensitive_data_on_connection_error: true,
   adapter: Ecto.Adapters.Postgres,
   url: System.get_env("DATABASE_URL"),
   pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10")
-  # ssl: true
+  ssl: true
 
 # ## SSL Support
 #
