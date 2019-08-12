@@ -20,10 +20,9 @@ config :strava_age_grading, StravaAgeGradingWeb.Endpoint,
 config :logger, level: :info
 
 config :strava_age_grading, StravaAgeGradingWeb.Repo,
-  show_sensitive_data_on_connection_error: true,
   adapter: Ecto.Adapters.Postgres,
   url: System.get_env("DATABASE_URL"),
-  pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10")
+  pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10"),
   ssl: true
 
 # ## SSL Support
